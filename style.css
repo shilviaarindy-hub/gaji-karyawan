@@ -1,0 +1,1508 @@
+
+/* =========================================================
+   PT COSMETIKA NUSANTARA
+   Aplikasi Daftar Gaji Karyawan
+   File: style.css
+   ========================================================= */
+
+/* ---------- 1. RESET DAN VARIABEL ---------- */
+
+:root {
+  --primary: #b65f78;
+  --primary-dark: #91445d;
+  --primary-light: #f7e7ec;
+  --secondary: #d6a66f;
+
+  --background: #fbf8f6;
+  --surface: #ffffff;
+  --surface-soft: #fffaf9;
+
+  --text: #332a2e;
+  --text-soft: #796c71;
+  --border: #eee3e5;
+
+  --success: #31836b;
+  --success-bg: #e8f6f0;
+  --danger: #bd4b59;
+  --danger-bg: #fff0f1;
+  --warning: #a87631;
+
+  --shadow:
+    0 8px 28px rgba(79, 42, 53, 0.06);
+
+  --radius: 16px;
+  --sidebar-width: 250px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(182, 95, 120, 0.3);
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ---------- 2. TATA LETAK UTAMA ---------- */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  padding: 28px 20px;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--border);
+}
+
+.main-content {
+  width: calc(100% - var(--sidebar-width));
+  min-width: 0;
+  margin-left: var(--sidebar-width);
+  padding: 30px 34px;
+}
+
+.page-section {
+  margin-bottom: 30px;
+  scroll-margin-top: 24px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.page-header h1 {
+  margin-bottom: 5px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.page-header p {
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------- 3. SIDEBAR DAN LOGO ---------- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 5px 30px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 22px;
+}
+
+.brand-text h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.brand-text p {
+  margin-top: 3px;
+  color: var(--text-soft);
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.nav-label {
+  margin: 28px 10px 12px;
+  color: #a3969b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 11px;
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-link:hover {
+  background: var(--surface-soft);
+  color: var(--primary-dark);
+  transform: translateX(2px);
+}
+
+.nav-link.active {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.nav-icon {
+  width: 22px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 25px;
+}
+
+.sidebar-note {
+  padding: 17px;
+  border: 1px solid #f0dce2;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff8fa, #fffdfb);
+}
+
+.sidebar-note strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.sidebar-note p {
+  color: var(--text-soft);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* ---------- 4. KARTU DAN PANEL ---------- */
+
+.card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.card-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card-header p {
+  margin-top: 4px;
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.section-title {
+  margin-bottom: 18px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+/* ---------- 5. DASHBOARD STATISTIK ---------- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  position: relative;
+  min-width: 0;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.stat-card::after {
+  position: absolute;
+  right: -22px;
+  bottom: -35px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  content: "";
+  opacity: 0.55;
+}
+
+.stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 17px;
+}
+
+.stat-label {
+  color: var(--text-soft);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 19px;
+}
+
+.stat-value {
+  position: relative;
+  z-index: 1;
+  overflow-wrap: anywhere;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.stat-description {
+  position: relative;
+  z-index: 1;
+  margin-top: 7px;
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+/* ---------- 6. GRID FORM DAN DAFTAR ---------- */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.5fr);
+  align-items: start;
+  gap: 22px;
+}
+
+.form-card,
+.table-card {
+  min-width: 0;
+}
+
+/* ---------- 7. FORM INPUT KARYAWAN ---------- */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 17px;
+}
+
+.form-group label {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.form-group small,
+.field-hint {
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid #e9dcdf;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #b3a7ab;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(182, 95, 120, 0.1);
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+  background: #f7f2f3;
+  cursor: not-allowed;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.salary-preview {
+  margin: 7px 0 20px;
+  padding: 17px;
+  border: 1px solid #f0dce2;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #fff7f9, #fffdfb);
+}
+
+.salary-preview-label {
+  margin-bottom: 5px;
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.salary-preview-value {
+  color: var(--primary-dark);
+  font-size: 23px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.salary-preview small {
+  display: block;
+  margin-top: 5px;
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-actions button {
+  flex: 1;
+}
+
+/* ---------- 8. TOMBOL ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 41px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  border-color: var(--border);
+  background: #fff;
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: #d8b7c1;
+  background: #fff8fa;
+}
+
+.btn-danger {
+  border-color: #f1d5d9;
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.btn-danger:hover {
+  background: #ffe1e5;
+}
+
+.btn-small {
+  min-height: 31px;
+  padding: 6px 9px;
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+.btn-icon {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--text-soft);
+}
+
+.btn-icon:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+/* ---------- 9. PENCARIAN DAN TABEL ---------- */
+
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 17px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 180px;
+  max-width: 330px;
+}
+
+.search-box input {
+  width: 100%;
+  min-height: 41px;
+  padding: 10px 13px 10px 37px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 12px;
+}
+
+.search-box input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  color: var(--text-soft);
+  transform: translateY(-50%);
+}
+
+.result-count {
+  color: var(--text-soft);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.employee-table {
+  min-width: 780px;
+}
+
+th {
+  padding: 14px 13px;
+  background: #fff8fa;
+  color: #8c727b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+td {
+  padding: 14px 13px;
+  border-top: 1px solid #f3eaec;
+  color: var(--text);
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+tbody tr {
+  transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+  background: #fffbfc;
+}
+
+.employee-name {
+  font-weight: 700;
+}
+
+.employee-subtitle {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-soft);
+  font-size: 10px;
+}
+
+.salary-cell {
+  color: var(--primary-dark);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.empty-state {
+  padding: 35px 15px;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+.empty-state strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+/* ---------- 10. BADGE DAN GOLONGAN ---------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 9px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-primary {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.badge-success {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.badge-danger {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.badge-neutral {
+  background: #f4eff1;
+  color: #75666c;
+}
+
+/* ---------- 11. ATURAN GAJI ---------- */
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.rule-card {
+  padding: 19px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: #fff;
+}
+
+.rule-card h3 {
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.rule-card ul {
+  padding-left: 18px;
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.rule-card li {
+  margin-bottom: 8px;
+}
+
+.rule-card strong {
+  color: var(--text);
+}
+
+.rule-highlight {
+  margin-top: 12px;
+  padding: 11px;
+  border-radius: 9px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 11px;
+}
+
+/* ---------- 12. RUMUS DAN CATATAN ---------- */
+
+.info-box {
+  padding: 17px;
+  border: 1px solid #f0dce2;
+  border-radius: 12px;
+  background: #fff9fb;
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.info-box strong {
+  color: var(--text);
+}
+
+.formula {
+  display: block;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 13. FOOTER ---------- */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 0 5px;
+  border-top: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 11px;
+  flex-wrap: wrap;
+}
+
+.footer strong {
+  color: var(--primary-dark);
+}
+
+/* ---------- 14. MODAL DETAIL DAN SLIP GAJI ---------- */
+
+.detail-modal {
+  width: min(650px, calc(100% - 30px));
+  max-width: 650px;
+  max-height: 90vh;
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 25px 80px rgba(48, 25, 33, 0.22);
+}
+
+.detail-modal::backdrop {
+  background: rgba(40, 25, 30, 0.48);
+  backdrop-filter: blur(3px);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 22px 25px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 17px 25px;
+  border-top: 1px solid var(--border);
+  background: #fffaf9;
+  flex-wrap: wrap;
+}
+
+.slip-header {
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--primary);
+  text-align: center;
+}
+
+.slip-header h2 {
+  margin-bottom: 5px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 23px;
+}
+
+.slip-header p {
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.slip-title {
+  margin: 20px 0;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.slip-employee-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 22px;
+  margin-bottom: 23px;
+}
+
+.slip-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.slip-info-item span {
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.slip-info-item strong {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.slip-table {
+  margin-bottom: 18px;
+}
+
+.slip-table th,
+.slip-table td {
+  padding: 11px 10px;
+}
+
+.slip-table th {
+  background: #fff7f9;
+}
+
+.slip-table td:last-child,
+.slip-table th:last-child {
+  text-align: right;
+}
+
+.slip-total td {
+  border-top: 2px solid var(--primary);
+  font-weight: 700;
+}
+
+.slip-net {
+  margin-top: 20px;
+  padding: 17px;
+  border-radius: 11px;
+  background: var(--primary-light);
+}
+
+.slip-net-label {
+  color: var(--primary-dark);
+  font-size: 12px;
+}
+
+.slip-net-value {
+  margin-top: 5px;
+  color: var(--primary-dark);
+  font-size: 26px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.slip-signature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.slip-signature p {
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.signature-space {
+  height: 65px;
+}
+
+/* ---------- 15. ANIMASI RINGAN ---------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-section {
+  animation: fadeIn 0.3s ease both;
+}
+
+/* ---------- 16. RESPONSIVE TABLET ---------- */
+
+@media (max-width: 1200px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+
+  .main-content {
+    padding: 25px 22px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rules-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- 17. RESPONSIVE HP ---------- */
+
+@media (max-width: 700px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+
+  .app {
+    display: block;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    padding: 0 3px 15px;
+  }
+
+  .nav-label {
+    margin: 15px 5px 8px;
+  }
+
+  .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .nav-link {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 14px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .page-header h1 {
+    font-size: 27px;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .rules-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .table-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+
+  .result-count {
+    white-space: normal;
+  }
+
+  .slip-employee-info {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail-modal {
+    width: calc(100% - 20px);
+    max-height: 94vh;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-header,
+  .modal-footer {
+    padding: 15px 16px;
+  }
+
+  .slip-header h2 {
+    font-size: 19px;
+  }
+
+  .slip-net-value {
+    font-size: 22px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
+
+/* ---------- 18. RESPONSIVE HP KECIL ---------- */
+
+@media (max-width: 380px) {
+  .stats-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nav-menu {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   19. CETAK LAPORAN DAN SLIP GAJI
+   ========================================================= */
+
+@page {
+  size: A4;
+  margin: 15mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 100%;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    background: #fff !important;
+    color: #000 !important;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sidebar,
+  .page-header,
+  .header-actions,
+  .form-card,
+  .search-box,
+  .table-toolbar button,
+  .table-actions,
+  .modal-footer,
+  .btn,
+  .footer,
+  .no-print {
+    display: none !important;
+  }
+
+  .app {
+    display: block !important;
+    min-height: auto !important;
+  }
+
+  .main-content {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .page-section {
+    display: block !important;
+    margin: 0 0 15px !important;
+    break-inside: avoid;
+    animation: none !important;
+  }
+
+  .card,
+  .stat-card,
+  .rule-card {
+    border: 1px solid #ddd !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .stat-card {
+    padding: 12px !important;
+  }
+
+  .content-grid {
+    display: block !important;
+  }
+
+  .table-card {
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .table-wrapper {
+    overflow: visible !important;
+    border: none !important;
+  }
+
+  .employee-table {
+    min-width: 0 !important;
+    width: 100% !important;
+    font-size: 8pt !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td {
+    padding: 7px 5px !important;
+    border: 1px solid #ddd !important;
+    color: #000 !important;
+    font-size: 8pt !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    break-inside: avoid;
+  }
+
+  .detail-modal {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .detail-modal::backdrop {
+    display: none !important;
+    background: transparent !important;
+  }
+
+  .modal-header {
+    padding: 0 0 12px !important;
+    border-bottom: 1px solid #ccc !important;
+  }
+
+  .modal-header h2 {
+    color: #000 !important;
+    font-size: 18pt !important;
+  }
+
+  .modal-body {
+    padding: 15px 0 !important;
+  }
+
+  .slip-header {
+    border-bottom: 2px solid #555 !important;
+  }
+
+  .slip-header h2,
+  .slip-title,
+  .slip-info-item strong,
+  .slip-net-value,
+  .slip-net-label {
+    color: #000 !important;
+  }
+
+  .slip-net {
+    border: 1px solid #ccc !important;
+    background: #f5f5f5 !important;
+  }
+
+  .slip-signature {
+    break-inside: avoid;
+  }
+
+  .employee-table th:last-child,
+  .employee-table td:last-child {
+    display: none !important;
+  }
+
+  .rules-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* =========================================================
+   20. MODE KHUSUS CETAK SLIP GAJI
+   Tambahan untuk tombol cetak slip dari JavaScript
+   ========================================================= */
+
+@media print {
+  body.print-slip > * {
+    visibility: hidden !important;
+  }
+
+  body.print-slip .detail-modal,
+  body.print-slip .detail-modal * {
+    visibility: visible !important;
+  }
+
+  body.print-slip .detail-modal {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+  }
+
+  body.print-slip .modal-header,
+  body.print-slip .modal-body {
+    visibility: visible !important;
+  }
+
+  body.print-slip .modal-footer,
+  body.print-slip .close-modal,
+  body.print-slip .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  body.print-slip .slip-header,
+  body.print-slip .slip-title,
+  body.print-slip .slip-employee-info,
+  body.print-slip .slip-table,
+  body.print-slip .slip-net,
+  body.print-slip .slip-signature {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  body.print-slip .slip-table {
+    width: 100% !important;
+  }
+
+  body.print-slip .slip-table th,
+  body.print-slip .slip-table td {
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    color: #000 !important;
+    font-size: 10pt !important;
+  }
+}/* TOMBOL STANDAR PENGGAJIAN */
+.standar-toggle-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.standar-toggle-card .card-header {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.standar-toggle-card .card-header p {
+  margin-top: 5px;
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.standar-content {
+  margin-top: 16px;
+  animation: fadeIn 0.25s ease;
+}
+
+.standar-content[hidden] {
+  display: none !important;
+}
+
+#ikon-btn-standar {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+#btn-standar[aria-expanded="true"] #ikon-btn-standar {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 600px) {
+  .standar-toggle-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .standar-toggle-card #btn-standar {
+    width: 100%;
+  }
+}
+/* MERAPIKAN POSISI KOTAK INPUT KARYAWAN */
+
+#employee-form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 380px));
+  align-items: start;
+  gap: 18px 20px;
+}
+
+
+#employee-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Nama lengkap menggunakan lebar penuh */
+#employee-form .field.full {
+  grid-column: 1 / -1;
+}
+
+/* Menyamakan lebar semua kotak input */
+#employee-form .field input,
+#employee-form .field select,
+#employee-form .field textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Tampilan HP */
+@media (max-width: 700px) {
+  #employee-form .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  #employee-form .field.full {
+    grid-column: auto;
+  }
+}
+```

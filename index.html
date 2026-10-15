@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cosmetica | Sistem Penggajian Karyawan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">C</div>
+
+            <div>
+                <h2>COSMETICA</h2>
+                <small>BEAUTY INNOVATION</small>
+            </div>
+        </div>
+
+        <div class="side-label">MENU UTAMA</div>
+
+        <a href="#dashboard" class="nav-item active">
+            ⌂ <span>Dashboard</span>
+        </a>
+
+        <a href="#form-karyawan" class="nav-item">
+            ＋ <span>Tambah Karyawan</span>
+        </a>
+
+        <a href="#daftar-karyawan" class="nav-item">
+            ▤ <span>Data Karyawan</span>
+        </a>
+
+        <a href="#aturan-gaji" class="nav-item">
+            ◈ <span>Aturan Penggajian</span>
+        </a>
+
+        <div class="sidebar-bottom">
+            <div class="mini-logo">✿</div>
+
+            <p>
+                Beauty starts with
+                <br>
+                <strong>people who care.</strong>
+            </p>
+
+            <small>PT Cosmetika Nusantara</small>
+        </div>
+
+    </aside>
+
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div>
+                <div class="eyebrow">
+                    HUMAN RESOURCES MANAGEMENT
+                </div>
+
+                <h1>Payroll <span>& People</span></h1>
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-icon">HR</div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Human Resources</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="welcome">
+
+            <div>
+
+                <span class="welcome-tag">
+                    ✦ PEOPLE & CULTURE
+                </span>
+
+                <h2>
+                    Mengelola talenta,
+                    <br>
+                    menghargai setiap
+                    <i>kontribusi.</i>
+                </h2>
+
+                <p>
+                    Kelola data karyawan dan perhitungan gaji
+                    dalam satu tempat.
+                </p>
+
+            </div>
+
+            <div class="welcome-art">
+
+                <div class="art-circle"></div>
+
+                <div class="art-flower">✿</div>
+
+                <div class="art-text">
+                    CARE
+                    <br>
+                    GROW
+                    <br>
+                    GLOW
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RINGKASAN GAJI -->
+        <section class="stats">
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span>Total Karyawan</span>
+                    <span class="stat-icon pink">♙</span>
+                </div>
+
+                <h2 id="total-karyawan">0</h2>
+
+                <p>Data karyawan terdaftar</p>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span>Total Gaji Bersih</span>
+                    <span class="stat-icon peach">Rp</span>
+                </div>
+
+                <h2 id="total-gaji">Rp0</h2>
+
+                <p>Akumulasi penggajian bulanan</p>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-top">
+                    <span>Rata-rata Gaji</span>
+                    <span class="stat-icon purple">↗</span>
+                </div>
+
+                <h2 id="rata-gaji">Rp0</h2>
+
+                <p>Gaji bersih per karyawan</p>
+
+            </article>
+
+        </section>
+
+
+        <!-- FORM TAMBAH KARYAWAN -->
+        <section id="form-karyawan" class="panel">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        EMPLOYEE MANAGEMENT
+                    </span>
+
+                    <h2 id="judul-form">
+                        Tambah Karyawan Baru
+                    </h2>
+
+                    <p>
+                        Lengkapi informasi berikut untuk
+                        menghitung gaji otomatis.
+                    </p>
+
+                </div>
+
+                <span class="step-badge">01 / DATA</span>
+
+            </div>
+
+
+            <form id="employee-form">
+
+                <input type="hidden" id="edit-id">
+
+
+                <div class="form-grid">
+
+                    <!-- NAMA -->
+                    <div class="field full">
+
+                        <label for="nama">
+                            Nama lengkap karyawan <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nama"
+                            placeholder="Contoh: Anindya Putri"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PENDIDIKAN -->
+                    <div class="field">
+
+                        <label for="pendidikan">
+                            Pendidikan terakhir <span>*</span>
+                        </label>
+
+                        <select id="pendidikan" required>
+
+                            <option value="">
+                                Pilih pendidikan
+                            </option>
+
+                            <option value="SMP">
+                                SMP — Golongan I
+                            </option>
+
+                            <option value="SMA">
+                                SMA — Golongan II
+                            </option>
+
+                            <option value="SMK">
+                                SMK — Golongan III
+                            </option>
+
+                            <option value="S1">
+                                S1 — Golongan IV
+                            </option>
+
+                            <option value="S2">
+                                S2 — Golongan V
+                            </option>
+
+                            <option value="S3">
+                                S3 — Golongan VI
+                            </option>
+
+                        </select>
+
+                        <small id="info-golongan">
+                            Golongan akan ditentukan otomatis.
+                        </small>
+
+                    </div>
+
+
+                    <!-- MASA KERJA -->
+                    <div class="field">
+
+                        <label for="masa-kerja">
+                            Lama bekerja (tahun) <span>*</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="masa-kerja"
+                            min="5"
+                            max="60"
+                            step="1"
+                            placeholder="Minimal 5 tahun"
+                            required
+                        >
+
+                        <small>
+                            Kelompok gaji dimulai dari masa kerja 5 tahun.
+                        </small>
+
+                    </div>
+
+
+                    <!-- JUMLAH ANAK -->
+                    <div class="field">
+
+                        <label for="anak">
+                            Jumlah anak
+                        </label>
+
+                        <input
+                            type="number"
+                            id="anak"
+                            min="0"
+                            max="30"
+                            step="1"
+                            value="0"
+                            required
+                        >
+
+                        <small>
+                            Tunjangan anak diberikan untuk 3 anak atau lebih.
+                        </small>
+
+                    </div>
+
+
+                    <!-- STATUS KARYAWAN -->
+                    <div class="field">
+
+                        <label for="status">
+                            Status karyawan
+                        </label>
+
+                        <select id="status">
+
+                            <option value="Tetap">
+                                Karyawan Tetap
+                            </option>
+
+                            <option value="Kontrak">
+                                Karyawan Kontrak
+                            </option>
+
+                            <option value="Probation">
+                                Masa Percobaan
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PREVIEW GAJI -->
+                <div class="salary-preview">
+
+                    <div>
+
+                        <span>
+                            Estimasi gaji pokok per bulan
+                        </span>
+
+                        <h3 id="preview-gaji">Rp0</h3>
+
+                    </div>
+
+                    <div class="preview-note">
+                        ✦ Perhitungan mengikuti
+                        <br>
+                        kelompok masa kerja.
+                    </div>
+
+                </div>
+
+
+                <!-- TOMBOL FORM -->
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="btn btn-light"
+                        id="btn-reset"
+                    >
+                        Reset Form
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="btn-simpan"
+                    >
+                        ＋ Simpan Karyawan
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- DAFTAR KARYAWAN -->
+        <section id="daftar-karyawan" class="panel">
+
+            <div class="section-heading list-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        EMPLOYEE DIRECTORY
+                    </span>
+
+                    <h2>Daftar Karyawan</h2>
+
+                    <p>
+                        Informasi karyawan dan ringkasan gaji bulanan.
+                    </p>
+
+                </div>
+
+                <button
+                    id="btn-cetak"
+                    class="btn btn-light"
+                    type="button"
+                >
+                    ♧ Cetak Laporan
+                </button>
+
+            </div>
+
+
+            <!-- PENCARIAN -->
+            <div class="table-tools">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="search"
+                        id="cari"
+                       placeholder="Cari nama, pendidikan, jumlah anak..."
+                    >
+
+                </div>
+
+                <span class="result-count" id="jumlah-hasil">
+                    0 karyawan
+                </span>
+
+            </div>
+
+
+            <!-- TABEL DATA -->
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>KARYAWAN</th>
+                            <th>PENDIDIKAN</th>
+                            <th>MASA KERJA</th>
+                            <th>GOLONGAN</th>
+                            <th>GAJI BERSIH</th>
+                            <th>AKSI</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tabel-karyawan">
+
+                        <tr>
+                            <td colspan="6" class="empty-state">
+                                Belum ada data karyawan.
+                                Silakan tambahkan karyawan baru.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+       
+<!-- STANDAR PENGGAJIAN -->
+<section id="aturan-gaji" class="page-section">
+  <div class="card standar-toggle-card">
+    <div class="card-header">
+      <div>
+        <h2>Standar Penggajian</h2>
+        <p>Dasar perhitungan gaji bulanan perusahaan.</p>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-primary"
+      id="btn-standar"
+      aria-expanded="false"
+      aria-controls="konten-standar"
+    >
+      <span id="teks-btn-standar">Lihat Standar Penggajian</span>
+      <span id="ikon-btn-standar">⌄</span>
+    </button>
+  </div>
+
+  <div id="konten-standar" class="standar-content" hidden>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <h3>💰 Gaji Pokok</h3>
+        <ul>
+          <li>5–10 tahun: <strong>Rp3.000.000</strong></li>
+          <li>11–15 tahun: <strong>Rp4.500.000</strong></li>
+          <li>16 tahun ke atas: <strong>Rp6.000.000</strong></li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>📅 Tunjangan Masa Kerja</h3>
+        <ul>
+          <li>Sampai 15 tahun: <strong>Rp150.000</strong></li>
+          <li>Lebih dari 15 tahun: <strong>Rp300.000</strong></li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>👨‍👩‍👧 Tunjangan Anak</h3>
+        <ul>
+          <li>Kurang dari 3 anak: <strong>Rp0</strong></li>
+          <li>3 anak atau lebih: <strong>7% dari gaji pokok</strong></li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>⭐ Premi dan Tambahan</h3>
+        <ul>
+          <li>Premi: <strong>5% dari gaji pokok</strong></li>
+          <li>Tambahan karyawan: <strong>3% dari gaji pokok</strong></li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>🧾 Potongan PPh</h3>
+        <ul>
+          <li>PPh simulasi: <strong>13% dari bruto</strong></li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>🧮 Rumus Gaji Bersih</h3>
+        <div class="rule-highlight">
+          Gaji bersih = gaji bruto − potongan PPh
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- FOOTER -->
+        <footer>
+
+            <span>
+                © 2026 PT Cosmetika Nusantara
+            </span>
+
+            <span>
+                Made with care <b>✿</b> for every employee
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- MODAL RINCIAN GAJI -->
+    <dialog id="modal-detail" class="detail-modal">
+
+        <div class="modal-head">
+
+            <div>
+
+                <span class="eyebrow">
+                    PAYSLIP DETAIL
+                </span>
+
+                <h2>Rincian Penggajian</h2>
+
+            </div>
+
+            <button
+                id="tutup-modal"
+                class="close-btn"
+                type="button"
+                aria-label="Tutup"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- Rincian diisi otomatis oleh JavaScript -->
+        <div id="isi-detail"></div>
+
+
+        <button
+            id="cetak-slip"
+            class="btn btn-primary btn-wide"
+            type="button"
+        >
+            Cetak Slip Gaji
+        </button>
+
+    </dialog>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
